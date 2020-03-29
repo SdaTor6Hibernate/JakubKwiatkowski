@@ -10,7 +10,7 @@ public class przyklad1 {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Order print = session.find(Order.class, 1);
         session.close();
-        System.out.println(print.toString());
+        System.out.println(print.getOrdDate());
     }
 
 

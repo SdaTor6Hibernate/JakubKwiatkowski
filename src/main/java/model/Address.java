@@ -19,7 +19,7 @@ public class Address {
     @Column(name = "ADD_BUILDING_NO")
     private String buildingNo;
     @Column(name = "ADD_APARTAMENT_NO")
-    private String appartamentNo;
+    private int appartamentNo;
     @Column(name = "ADD_CITY")
     private String city;
     @Column(name = "ADD_POSTAL_CODE")

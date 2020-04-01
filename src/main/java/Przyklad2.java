@@ -4,8 +4,10 @@ import util.HibernateUtil;
 
 public class Przyklad2 {
     public static void main(String[] args) {
-        usePersist();
-        useMerge();
+//        usePersist();
+//        useMerge();
+//        useUpdate();
+        useDelete();
     }
     //persist() zawsze tworzy nowy obiekt
 //Służy do utrwalania obiektów. Jej wywołanie powoduje dołączenie przekazanego obiektu do zbioru obiektów zarządzanych oraz wywołanie INSERT
@@ -46,5 +48,33 @@ public class Przyklad2 {
         session.flush();
         session.close();
         System.out.println("After Close");
+    }
+
+    public static void useUpdate() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Country country = new Country();
+        country.setId(12);
+        country.setName("Japan");
+        country.setAlias("JP");
+        session.update(country);
+        session.flush();
+        session.close();
+    }
+
+    public static void useDelete() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Country countryToBeDeleted = new Country();
+        countryToBeDeleted.setId(13);
+        if (session.contains(countryToBeDeleted)){
+        session.delete(countryToBeDeleted);
+        }
+        else {
+            System.out.println("Country does not exist");
+        }
+
+        session.flush();
+        session.close();
     }
 }

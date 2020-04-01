@@ -15,7 +15,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ORD_ID")
-    private int ordId;
+    private int id;
     @Column(name = "ORD_DATE")
     private LocalDateTime ordDate;
     @Column(name = "ORD_PRICE")

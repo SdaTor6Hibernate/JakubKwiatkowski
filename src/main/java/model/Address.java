@@ -8,12 +8,12 @@ import javax.persistence.*;
 @Data
 
 
-public class Address {
+public class Address implements ModelClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ADD_ID")
-    private int addId;
+    private int id;
     @Column(name = "ADD_STREET")
     private String street;
     @Column(name = "ADD_BUILDING_NO")
